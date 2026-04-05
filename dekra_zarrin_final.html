@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zarrin Productions x DEKRA | Future of Mobility Trainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;font-size:16px;line-height:1.6;color:#1a1a1a;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+:root{
+  --slate:#445863;--gold:#e5aa21;--gold-d:#c99312;
+  --slate-d:#2e3d45;--slate-l:#5c7280;
+  --white:#fff;--off:#f5f7f9;--gray:#dde2e6;
+  --nav-h:72px;
+}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--gray);display:flex;align-items:center;justify-content:space-between;padding:0 56px;transition:box-shadow .3s;}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1);}
+.nav-brand{font-size:19px;font-weight:900;color:var(--slate-d);}
+.nav-brand em{color:var(--gold);font-style:normal;}
+.nav-tag{font-size:11px;font-weight:700;color:var(--slate-l);letter-spacing:.6px;text-transform:uppercase;background:var(--off);padding:6px 16px;border-radius:100px;border:1px solid var(--gray);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:var(--nav-h);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a2830 0%,var(--slate-d) 45%,#1c2f3a 100%);}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(229,170,33,.04) 59px,rgba(229,170,33,.04) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(229,170,33,.04) 59px,rgba(229,170,33,.04) 60px);pointer-events:none;}
+.hero-glow{position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at 80% 40%,rgba(229,170,33,.07) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1200px;padding:0 56px;width:100%;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(229,170,33,.12);border:1px solid rgba(229,170,33,.25);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 18px;border-radius:100px;margin-bottom:28px;}
+.hero-eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.8s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{font-size:clamp(40px,5.8vw,78px);font-weight:900;line-height:1.02;color:#fff;text-transform:uppercase;letter-spacing:-1.5px;margin-bottom:22px;}
+.hero h1 .gold{color:var(--gold);}
+.hero-desc{font-size:16.5px;line-height:1.85;color:rgba(255,255,255,.6);max-width:460px;}
+.hero-desc strong{color:rgba(255,255,255,.9);}
+.hero-right{display:flex;flex-direction:column;gap:12px;}
+.hsc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:18px;transition:border-color .2s;}
+.hsc:hover{border-color:rgba(229,170,33,.3);}
+.hsc-icon{font-size:26px;flex-shrink:0;}
+.hsc-num{font-size:26px;font-weight:900;color:#fff;line-height:1;}
+.hsc-num span{color:var(--gold);}
+.hsc-label{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:.8px;margin-top:3px;}
+
+/* OPENING */
+.opening{background:#fff;padding:72px 56px;}
+.opening-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:start;}
+.section-chip{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);border-bottom:2.5px solid var(--gold);padding-bottom:4px;}
+.opening-body h2{font-size:clamp(26px,3.2vw,44px);font-weight:800;line-height:1.2;color:var(--slate-d);margin-bottom:20px;margin-top:14px;}
+.opening-body p{font-size:16px;line-height:1.85;color:#5a6270;margin-bottom:14px;}
+.opening-body p:last-child{margin-bottom:0;}
+.opening-body strong{color:var(--slate-d);font-weight:700;}
+
+/* CREDS STRIP */
+.creds-strip{background:var(--slate-d);padding:0 56px;}
+.creds-row{display:flex;max-width:1100px;margin:0 auto;}
+.ci{flex:1;padding:26px 28px 26px 0;border-right:1px solid rgba(255,255,255,.08);margin-right:28px;display:flex;flex-direction:column;gap:5px;}
+.ci:last-child{border-right:none;margin-right:0;padding-right:0;}
+.ci-label{font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+.ci-val{font-size:13.5px;font-weight:800;color:#fff;line-height:1.35;}
+
+/* SECTION HEADINGS */
+.sh{font-size:clamp(28px,3.5vw,46px);font-weight:900;color:var(--slate-d);line-height:1.1;margin-bottom:10px;margin-top:14px;}
+.sh.white{color:#fff;}
+.sp{font-size:15.5px;line-height:1.8;color:#5a6270;}
+
+/* ALIGNMENT */
+.align-section{background:var(--off);padding:72px 56px;}
+.align-inner{max-width:1100px;margin:0 auto;}
+.align-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.ac{background:#fff;border-radius:12px;padding:26px 22px;border:1.5px solid var(--gray);position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;}
+.ac::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(68,88,99,.35));}
+.ac:hover{transform:translateY(-4px);border-color:rgba(229,170,33,.4);box-shadow:0 16px 40px rgba(0,0,0,.07);}
+.ac-icon{font-size:24px;margin-bottom:12px;}
+.ac h4{font-size:14px;font-weight:800;color:var(--slate-d);text-transform:uppercase;letter-spacing:.4px;margin-bottom:9px;}
+.ac p{font-size:13.5px;line-height:1.7;color:#666;}
+.ac-badge{display:block;margin-top:14px;font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--slate-d);background:var(--gold);padding:9px 16px;border-radius:100px;white-space:nowrap;text-align:center;}
+
+/* PROCESS */
+.process-section{background:#fff;padding:72px 56px;}
+.process-inner{max-width:1100px;margin:0 auto;}
+.process-layout{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:40px;}
+.ptrack{display:flex;flex-direction:column;}
+.pstep{display:grid;grid-template-columns:38px 1fr;gap:16px;padding-bottom:22px;}
+.pstep:last-child{padding-bottom:0;}
+.pstep-l{display:flex;flex-direction:column;align-items:center;}
+.pnum{width:36px;height:36px;border-radius:50%;background:var(--slate-d);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pline{width:2px;flex:1;background:var(--gray);margin-top:4px;min-height:16px;}
+.pstep:last-child .pline{display:none;}
+.pstep-r{padding-top:6px;}
+.pstep-r h4{font-size:15px;font-weight:800;color:var(--slate-d);margin-bottom:5px;}
+.pstep-r p{font-size:13.5px;color:#666;line-height:1.7;}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.ptag{background:var(--off);border:1px solid var(--gray);color:var(--slate);font-size:10.5px;font-weight:700;padding:2px 10px;border-radius:100px;}
+.vs-card{border-radius:14px;overflow:hidden;border:1.5px solid var(--gray);}
+.vs-head{background:var(--slate-d);padding:20px 24px;}
+.vs-head-title{font-size:15px;font-weight:800;color:#fff;}
+.vs-head-sub{font-size:11.5px;color:rgba(255,255,255,.4);margin-top:3px;}
+.vs-body{padding:22px 24px;display:flex;flex-direction:column;gap:15px;}
+.vs-row{display:flex;align-items:flex-start;gap:12px;}
+.vs-n{width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--slate-d);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.vs-text h5{font-size:13.5px;font-weight:800;color:var(--slate-d);}
+.vs-text p{font-size:12.5px;color:#888;line-height:1.5;}
+
+/* VIDEO SECTION */
+.video-section{background:var(--slate-d);padding:72px 0;}
+.video-inner{max-width:1440px;margin:0 auto;padding:0 40px;}
+.vheader{padding:0 0 36px;}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.vcard{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0e1820;display:flex;flex-direction:column;}
+.vcard-label{padding:14px 18px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08);}
+.vcard-cat{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);}
+.vcard-title{font-size:13px;font-weight:800;color:#fff;margin-top:3px;line-height:1.3;}
+.vcard-thumb{position:relative;width:100%;padding-top:56.25%;cursor:pointer;overflow:hidden;}
+.vcard-thumb:hover .vcard-play-btn{transform:translate(-50%,-50%) scale(1.12);background:var(--gold-d);}
+.vcard-play-btn{width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;}
+.vcard-play-btn svg{width:22px;height:22px;fill:var(--slate-d);margin-left:3px;}
+.vcard-thumb-hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;z-index:2;}
+.vcard-frame-wrap{position:relative;width:100%;padding-top:56.25%;display:none;}
+.vcard-frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
+.video-foot{display:flex;justify-content:flex-end;padding-top:24px;}
+.more-btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--slate-d);font-size:12.5px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;padding:13px 26px;border-radius:6px;transition:background .15s,transform .15s;}
+.more-btn:hover{background:var(--gold-d);transform:translateY(-1px);}
+.more-btn svg{width:14px;height:14px;}
+
+/* COURSE ARCHITECTURE */
+.arch-section{background:var(--off);padding:72px 56px;}
+.arch-inner{max-width:1100px;margin:0 auto;}
+.arch-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:24px 0 36px;border:1.5px solid var(--gray);border-radius:12px;overflow:hidden;background:#fff;}
+.arch-stat{padding:22px 28px;border-right:1.5px solid var(--gray);}
+.arch-stat:last-child{border-right:none;}
+.arch-stat-num{font-size:34px;font-weight:900;color:var(--slate-d);line-height:1;}
+.arch-stat-num em{color:var(--gold);font-style:normal;}
+.arch-stat-label{font-size:11px;font-weight:700;color:var(--slate-l);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;}
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.arch-card{border-radius:12px;overflow:hidden;border:1.5px solid var(--gray);background:#fff;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s;}
+.arch-card:hover{transform:translateY(-4px);border-color:rgba(229,170,33,.4);box-shadow:0 14px 36px rgba(0,0,0,.08);}
+.arch-head{background:var(--slate-d);padding:14px 16px;flex-shrink:0;}
+.arch-num{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.arch-title{font-size:13px;font-weight:800;color:#fff;line-height:1.3;margin-top:3px;}
+.arch-lessons{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.arch-lesson{font-size:11.5px;color:#5a6270;line-height:1.4;padding-left:12px;position:relative;}
+.arch-lesson::before{content:'';position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.arch-foot{padding:9px 16px;background:rgba(68,88,99,.05);border-top:1px solid var(--gray);flex-shrink:0;}
+.arch-foot span{font-size:10.5px;font-weight:800;color:var(--slate);}
+
+/* TOOLS */
+.tools-strip{background:#fff;padding:52px 56px;border-top:1px solid var(--gray);}
+.tools-inner{max-width:1100px;margin:0 auto;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:24px;}
+.tool-col-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.tools-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.tpill{display:flex;align-items:center;gap:7px;background:var(--off);border:1.5px solid var(--gray);border-radius:100px;padding:7px 14px;font-size:12px;font-weight:700;color:var(--slate-d);transition:border-color .2s,background .2s;}
+.tpill:hover{border-color:var(--gold);background:rgba(229,170,33,.06);}
+.tpill-icon{font-size:14px;}
+
+/* CLOSE */
+.close-section{background:var(--off);padding:72px 56px;}
+.close-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.close-left h2{font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--slate-d);line-height:1.2;margin-top:14px;margin-bottom:22px;}
+.close-left p{font-size:15.5px;line-height:1.85;color:#5a6270;}
+.close-right{display:flex;flex-direction:column;gap:14px;}
+.cc{background:#fff;border-radius:12px;border:1.5px solid var(--gray);padding:22px 24px;transition:border-color .2s;}
+.cc:hover{border-color:var(--gold);}
+.cc-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.cc-val{font-size:15.5px;font-weight:800;color:var(--slate-d);}
+.cc-sub{font-size:12.5px;color:var(--slate-l);margin-top:4px;}
+
+/* FOOTER */
+footer{background:var(--slate-d);border-top:3px solid var(--gold);padding:24px 56px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.foot-brand{font-size:17px;font-weight:900;color:#fff;}
+.foot-brand em{color:var(--gold);font-style:normal;}
+footer p{font-size:12px;color:rgba(255,255,255,.3);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav,.opening,.creds-strip,.align-section,.process-section,.arch-section,.tools-strip,.close-section,footer,
+  .opening-inner,.align-inner,.process-inner,.arch-inner,.tools-inner,.close-inner{padding-left:20px;padding-right:20px;}
+  .hero-inner{grid-template-columns:1fr;padding:40px 20px;}
+  .hero-right{display:none;}
+  .opening-inner,.process-layout,.close-inner{grid-template-columns:1fr;gap:36px;}
+  .align-grid{grid-template-columns:1fr 1fr;}
+  .arch-grid{grid-template-columns:1fr 1fr;}
+  .arch-stats{grid-template-columns:1fr 1fr;}
+  .arch-stat:nth-child(2){border-right:none;}
+  .arch-stat:nth-child(3){border-top:1.5px solid var(--gray);}
+  .creds-row{flex-direction:column;padding:24px 0;}
+  .ci{border-right:none;margin-right:0;padding-right:0;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:16px;}
+  .ci:last-child{border-bottom:none;padding-bottom:0;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .video-grid{grid-template-columns:1fr 1fr !important;}
+  .video-inner{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="topnav">
+  <div class="nav-brand">ZARRIN <em>PRODUCTIONS</em></div>
+  <div class="nav-tag">Applying · DEKRA · Future of Mobility Trainer</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-pattern"></div><div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="rv">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Application · DEKRA 1099 Contractor</div>
+      <h1>Learning That<br>Moves The <span class="gold">Mission</span><br>Forward.</h1>
+      <p class="hero-desc">We are Zarrin Productions. A full-service AI-powered learning and video production agency. We do not just make content we <strong>engineer training that sticks</strong>, ship at scale, and never miss a deadline.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hsc rv d1">
+        <div class="hsc-icon">🎓</div>
+        <div>
+          <div class="hsc-num">300<span>+</span></div>
+          <div class="hsc-label">Corporate Education Videos Produced</div>
+        </div>
+      </div>
+      <div class="hsc rv d2">
+        <div class="hsc-icon">🤖</div>
+        <div>
+          <div class="hsc-num">8<span>+</span></div>
+          <div class="hsc-label">AI Tools in Active Production Workflow</div>
+        </div>
+      </div>
+      <div class="hsc rv d3">
+        <div class="hsc-icon">🏛️</div>
+        <div>
+          <div class="hsc-num" style="font-size:17px;font-weight:900;line-height:1.3;">Founder's Education</div>
+          <div class="hsc-label">B.S. Digital Marketing · M.S. Cybersecurity</div>
+        </div>
+      </div>
+      <div class="hsc rv d4">
+        <div class="hsc-icon">&#9889;</div>
+        <div>
+          <div class="hsc-num" style="font-size:17px;font-weight:900;line-height:1.3;">Full Agency</div>
+          <div class="hsc-label">No Single-Person Bottlenecks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="opening">
+  <div class="opening-inner">
+    <div class="rv"><div class="section-chip" style="margin-top:8px;">Before We Begin</div></div>
+    <div class="opening-body rv d1">
+      <h2>We are genuinely glad to be applying for this opportunity.</h2>
+      <p>DEKRA's mission to make the world a safer place is not a slogan to us. It is the kind of work we are built for: high-stakes content, complex subject matter, and audiences who cannot afford to misunderstand what they are being taught.</p>
+      <p>Zarrin Productions is a full-service AI-powered learning and video production agency. We design, script, storyboard, produce, and deploy training content from the ground up using a structured methodology and an integrated AI toolkit. <strong>What follows is a direct, specific look at how we match every requirement in this role.</strong></p>
+    </div>
+  </div>
+</section>
+
+<div class="creds-strip">
+  <div class="creds-row">
+    <div class="ci rv d1">
+      <div class="ci-label">Founder's Academic Background</div>
+      <div class="ci-val">B.S. Digital Marketing<br>M.S. Cybersecurity</div>
+    </div>
+    <div class="ci rv d2">
+      <div class="ci-label">Teaching Experience</div>
+      <div class="ci-val">Former University Instructor</div>
+    </div>
+    <div class="ci rv d3">
+      <div class="ci-label">Videos Produced</div>
+      <div class="ci-val">Over 300 Corporate Education Videos</div>
+    </div>
+    <div class="ci rv d4">
+      <div class="ci-label">Agency Model</div>
+      <div class="ci-val">Full Circle Digital Marketing, Video Production and Course Development</div>
+    </div>
+  </div>
+</div>
+
+<section class="align-section">
+  <div class="align-inner">
+    <div class="rv">
+      <div class="section-chip">Point for Point Alignment</div>
+      <h2 class="sh">Every requirement in this role. We deliver it.</h2>
+      <p class="sp">DEKRA listed six core competencies. Here is exactly where Zarrin Productions stands on each one.</p>
+    </div>
+    <div class="align-grid">
+      <div class="ac rv d1">
+        <div class="ac-icon">🎓</div>
+        <h4>Learning Design and Development</h4>
+        <p>In-person workshops, virtual instructor-led sessions, digital modules, and microlearning, all designed from a formal needs analysis. We were teaching at university level before we built the agency.</p>
+        <div class="ac-badge">Former University Instructor</div>
+      </div>
+      <div class="ac rv d2">
+        <div class="ac-icon">🤖</div>
+        <h4>AI-Enhanced Content Creation</h4>
+        <p>OpenAI, HeyGen, Synthesia, Descript, Kling AI, Runway ML, ElevenLabs, Midjourney, and more are not novelties here. They are daily production infrastructure woven into every stage of our workflow.</p>
+        <div class="ac-badge">Full AI Production Stack</div>
+      </div>
+      <div class="ac rv d3">
+        <div class="ac-icon">🎬</div>
+        <h4>Multimedia, Video and Avatar Production</h4>
+        <p>AI avatar presenters, branded explainer videos, microlearning cuts. We own the full pipeline from script to final delivery. No external handoffs. No translation errors.</p>
+        <div class="ac-badge">300+ Videos Delivered</div>
+      </div>
+      <div class="ac rv d1">
+        <div class="ac-icon">📋</div>
+        <h4>Scripts, Storyboards and Facilitator Guides</h4>
+        <p>Every project ships with production-ready scripts, storyboards with director notes, facilitator guides, participant materials, quiz banks, and job aids. Full documentation. Every time.</p>
+        <div class="ac-badge">Complete Delivery. Every Project.</div>
+      </div>
+      <div class="ac rv d2">
+        <div class="ac-icon">📊</div>
+        <h4>Project and Stakeholder Management</h4>
+        <p>We own the project from kickoff to delivery. SME sessions are structured. Quality checkpoints are documented. Scope and timelines are defined before a single frame is produced.</p>
+        <div class="ac-badge">Full Lifecycle Ownership</div>
+      </div>
+      <div class="ac rv d3">
+        <div class="ac-icon">🛡️</div>
+        <h4>High-Risk Industry Mindset</h4>
+        <p>A Cybersecurity Master's changes how you think about accuracy, risk, and the real cost of errors in complex systems. That lens goes into every training asset we create for high-stakes environments.</p>
+        <div class="ac-badge">M.S. Cybersecurity Trained</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="process-inner">
+    <div class="rv">
+      <div class="section-chip">How We Build Courses</div>
+      <h2 class="sh">From zero to a finished, launched course.</h2>
+      <p class="sp">A structured, outcome-first methodology every time. Nothing gets recorded before it is validated and storyboarded.</p>
+    </div>
+    <div class="process-layout">
+      <div class="ptrack rv d1">
+        <div class="pstep">
+          <div class="pstep-l"><div class="pnum">1</div><div class="pline"></div></div>
+          <div class="pstep-r">
+            <h4>Market and Needs Validation</h4>
+            <p>Six-phase AI-assisted research to validate the topic, map the audience, audit competitors, and confirm a differentiation angle before anything is built.</p>
+            <div class="ptags"><span class="ptag">Audience Profiling</span><span class="ptag">Demand Research</span><span class="ptag">Competitive Analysis</span></div>
+          </div>
+        </div>
+        <div class="pstep">
+          <div class="pstep-l"><div class="pnum">2</div><div class="pline"></div></div>
+          <div class="pstep-r">
+            <h4>Curriculum Architecture</h4>
+            <p>We design backward from the outcome. Every module and assessment is sequenced to move the learner efficiently. ADDIE and SAM compatible.</p>
+            <div class="ptags"><span class="ptag">Outcome-First Design</span><span class="ptag">Module Sequencing</span><span class="ptag">Assessment Mapping</span></div>
+          </div>
+        </div>
+        <div class="pstep">
+          <div class="pstep-l"><div class="pnum">3</div><div class="pline"></div></div>
+          <div class="pstep-r">
+            <h4>Script and Storyboard Development</h4>
+            <p>Production-ready scripts with visual direction and timing notes for every lesson. The production team receives zero ambiguity.</p>
+            <div class="ptags"><span class="ptag">Full Script Writing</span><span class="ptag">Visual Storyboarding</span><span class="ptag">SME Review Gates</span></div>
+          </div>
+        </div>
+        <div class="pstep">
+          <div class="pstep-l"><div class="pnum">4</div><div class="pline"></div></div>
+          <div class="pstep-r">
+            <h4>AI-Accelerated Video Production</h4>
+            <p>Avatar presenters, AI voice, motion graphics, branded overlays. Human quality review at every stage. Fast iteration without sacrificing accuracy.</p>
+            <div class="ptags"><span class="ptag">AI Avatars</span><span class="ptag">Motion Graphics</span><span class="ptag">Brand QA</span></div>
+          </div>
+        </div>
+        <div class="pstep">
+          <div class="pstep-l"><div class="pnum">5</div></div>
+          <div class="pstep-r">
+            <h4>LMS Build, Quizzes and Launch</h4>
+            <p>Lessons assembled, assessments built in, learner-path reviewed before publishing. We handle SCORM and xAPI packaging, validation, and troubleshooting.</p>
+            <div class="ptags"><span class="ptag">LMS Integration</span><span class="ptag">SCORM and xAPI</span><span class="ptag">Learner Path QA</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="vs-card rv d2">
+        <div class="vs-head">
+          <div class="vs-head-title">How Every Lesson Video Is Structured</div>
+          <div class="vs-head-sub">Our six-step video framework applied to every lesson we produce</div>
+        </div>
+        <div class="vs-body">
+          <div class="vs-row"><div class="vs-n">1</div><div class="vs-text"><h5>Introduce with Authority</h5><p>Name and context in the first five seconds. The learner knows exactly where they are.</p></div></div>
+          <div class="vs-row"><div class="vs-n">2</div><div class="vs-text"><h5>The Big Hook</h5><p>The most powerful outcome stated upfront. Passive watching becomes active intent immediately.</p></div></div>
+          <div class="vs-row"><div class="vs-n">3</div><div class="vs-text"><h5>The Big Why</h5><p>This lesson connected back to the learner's broader goal. Context before content.</p></div></div>
+          <div class="vs-row"><div class="vs-n">4</div><div class="vs-text"><h5>Point-by-Point Main Content</h5><p>Sequential, tangible instruction. Each point builds on the last. No tangents. No padding.</p></div></div>
+          <div class="vs-row"><div class="vs-n">5</div><div class="vs-text"><h5>Recap with Fresh Perspective</h5><p>Key points revisited from the position of someone who now has the knowledge.</p></div></div>
+          <div class="vs-row"><div class="vs-n">6</div><div class="vs-text"><h5>Signature Close and Action Item</h5><p>Consistent sign-off followed by an immediate action the learner takes now.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="video-section">
+  <div class="video-inner">
+    <div class="vheader rv">
+      <div class="section-chip" style="color:var(--gold);border-color:var(--gold);">Our Work</div>
+      <h2 class="sh white" style="margin-top:14px;">See exactly what we produce.</h2>
+    </div>
+    <div class="video-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="vcard rv d1">
+        <div class="vcard-label">
+          <div class="vcard-cat">Avatar and Explainer &middot; HeyGen &middot; Synthesia</div>
+          <div class="vcard-title">AI Avatar Production Sample</div>
+        </div>
+        <div class="vcard-thumb" id="thumb0" onclick="playVideo(0,'https://drive.google.com/file/d/1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0/preview')">
+          <img src="https://drive.google.com/thumbnail?id=1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0&sz=w1280-h720" alt="AI Avatar Sample" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%);"></div>
+          <div class="vcard-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="vcard-thumb-hint">Click to Play</div>
+        </div>
+        <div class="vcard-frame-wrap" id="fw0"></div>
+      </div>
+      <div class="vcard rv d2">
+        <div class="vcard-label">
+          <div class="vcard-cat">Platform and Education Video</div>
+          <div class="vcard-title">Platform and Education Video</div>
+        </div>
+        <div class="vcard-thumb" id="thumb1" onclick="playVideo(1,'https://drive.google.com/file/d/13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK/preview')">
+          <img src="https://drive.google.com/thumbnail?id=13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK&sz=w1280-h720" alt="Platform Education Video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%);"></div>
+          <div class="vcard-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="vcard-thumb-hint">Click to Play</div>
+        </div>
+        <div class="vcard-frame-wrap" id="fw1"></div>
+      </div>
+      <div class="vcard rv d3">
+        <div class="vcard-label">
+          <div class="vcard-cat">Fully AI-Generated Content</div>
+          <div class="vcard-title">End-to-End AI Production Sample</div>
+        </div>
+        <div class="vcard-thumb" id="thumb2" onclick="playVideo(2,'https://drive.google.com/file/d/1-rJxAad-Fwy3LoDXCJZ7whDXibNk3RM5/preview')">
+          <img src="https://drive.google.com/thumbnail?id=1-rJxAad-Fwy3LoDXCJZ7whDXibNk3RM5&sz=w1280-h720" alt="AI Generated Content" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%);"></div>
+          <div class="vcard-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="vcard-thumb-hint">Click to Play</div>
+        </div>
+        <div class="vcard-frame-wrap" id="fw2"></div>
+      </div>
+      <div class="vcard rv d4">
+        <div class="vcard-label">
+          <div class="vcard-cat">Course Production Sample</div>
+          <div class="vcard-title">Course Production Sample</div>
+        </div>
+        <div class="vcard-thumb" id="thumb3" onclick="playVideo(3,'https://drive.google.com/file/d/1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD/preview')">
+          <img src="https://drive.google.com/thumbnail?id=1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD&sz=w1280-h720" alt="Course Production Sample" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 60%);"></div>
+          <div class="vcard-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="vcard-thumb-hint">Click to Play</div>
+        </div>
+        <div class="vcard-frame-wrap" id="fw3"></div>
+      </div>
+    </div>
+    <div class="video-foot rv d4">
+      <a href="https://drive.google.com/drive/folders/1mkhQI1gUk2WWmWRI4kPdDm5c3yroEWtZ?usp=sharing" target="_blank" class="more-btn">
+        View More Portfolio Samples
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="arch-section">
+  <div class="arch-inner">
+    <div class="rv">
+      <div class="section-chip">Sample Course Architecture</div>
+      <h2 class="sh">Introduction to AI Across Industry Sectors</h2>
+      <p class="sp">A fully produced 8-module course with lesson plans, quiz banks, and AI-enhanced video for every single lesson.</p>
+    </div>
+    <div class="arch-stats rv d1">
+      <div class="arch-stat"><div class="arch-stat-num">8</div><div class="arch-stat-label">Modules</div></div>
+      <div class="arch-stat"><div class="arch-stat-num">54<em>+</em></div><div class="arch-stat-label">Lessons</div></div>
+      <div class="arch-stat"><div class="arch-stat-num">6<em>+</em></div><div class="arch-stat-label">Lessons per Module</div></div>
+      <div class="arch-stat"><div class="arch-stat-num">8</div><div class="arch-stat-label">Quiz Banks Included</div></div>
+    </div>
+    <div class="arch-grid">
+      <div class="arch-card rv d1">
+        <div class="arch-head"><div class="arch-num">Module 01</div><div class="arch-title">Introduction to AI</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">Introduction to Artificial Intelligence</div>
+          <div class="arch-lesson">Importance of AI</div>
+          <div class="arch-lesson">Different Types of AI</div>
+          <div class="arch-lesson">Recent Examples of AI</div>
+          <div class="arch-lesson">Understanding Machine Learning</div>
+          <div class="arch-lesson">Which AI Services Are Available?</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d2">
+        <div class="arch-head"><div class="arch-num">Module 02</div><div class="arch-title">AI in Learning and Education</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">How AI Is Changing the Way Students Learn</div>
+          <div class="arch-lesson">How Education Can Get Started With AI</div>
+          <div class="arch-lesson">Examples of AI in Education</div>
+          <div class="arch-lesson">How AI Can Accelerate Learning</div>
+          <div class="arch-lesson">Translation With ChatGPT</div>
+          <div class="arch-lesson">Blog Writing With ChatGPT</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d3">
+        <div class="arch-head"><div class="arch-num">Module 03</div><div class="arch-title">AI in the Gaming Industry</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">AI in the Gaming Industry</div>
+          <div class="arch-lesson">How AI Is Applied in Gaming</div>
+          <div class="arch-lesson">AI in Development and Programming</div>
+          <div class="arch-lesson">Growth of Generative AI in Gaming</div>
+          <div class="arch-lesson">Prompts to Use in Game Creating</div>
+          <div class="arch-lesson">All Tools for Video Development</div>
+        </div>
+        <div class="arch-foot"><span>7 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d4">
+        <div class="arch-head"><div class="arch-num">Module 04</div><div class="arch-title">AI in Stories and Podcasts</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">Introduction to AI Writing</div>
+          <div class="arch-lesson">How AI Can Improve Your Writing</div>
+          <div class="arch-lesson">How AI Is Used in Media Content</div>
+          <div class="arch-lesson">Storytelling with AI</div>
+          <div class="arch-lesson">ChatGPT Prompts in Story Writing</div>
+          <div class="arch-lesson">Tools to Support Podcasting</div>
+        </div>
+        <div class="arch-foot"><span>8 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d1">
+        <div class="arch-head"><div class="arch-num">Module 05</div><div class="arch-title">AI in Movies and Music</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">History of AI in Film</div>
+          <div class="arch-lesson">Examples of AI Portrayed in Film</div>
+          <div class="arch-lesson">Factors That Make a Successful Movie</div>
+          <div class="arch-lesson">Box Office Predictions Using AI</div>
+          <div class="arch-lesson">Applications of AI in the Music Industry</div>
+          <div class="arch-lesson">Video Creation With ChatGPT AI</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d2">
+        <div class="arch-head"><div class="arch-num">Module 06</div><div class="arch-title">AI in Planning and Decision Making</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">Introduction to AI Planning</div>
+          <div class="arch-lesson">How AI Plans Work and Solve Problems</div>
+          <div class="arch-lesson">Degrees of AI in Decision-Making</div>
+          <div class="arch-lesson">Applications of AI in Decision-Making</div>
+          <div class="arch-lesson">Journal Prompts to Help Make Decisions</div>
+          <div class="arch-lesson">Powerful Decision-Making Prompts</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d3">
+        <div class="arch-head"><div class="arch-num">Module 07</div><div class="arch-title">AI in Arts and Designing</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">Understanding the World of AI Art</div>
+          <div class="arch-lesson">Why Artists Are Using AI</div>
+          <div class="arch-lesson">Online AI Art Generators</div>
+          <div class="arch-lesson">How to Use DALL-E 2 for Creating Art</div>
+          <div class="arch-lesson">The Future of AI Art</div>
+          <div class="arch-lesson">Creating Custom Images With DALL-E 2</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+      <div class="arch-card rv d4">
+        <div class="arch-head"><div class="arch-num">Module 08</div><div class="arch-title">AI in Software Development</div></div>
+        <div class="arch-lessons">
+          <div class="arch-lesson">AI in Software Development: A Revolution</div>
+          <div class="arch-lesson">Impact of AI in Software Development</div>
+          <div class="arch-lesson">How to Use AI in Software Development</div>
+          <div class="arch-lesson">Areas Where AI Impacts Development</div>
+          <div class="arch-lesson">Challenges of Using AI in Development</div>
+          <div class="arch-lesson">Problem-Solving With ChatGPT</div>
+        </div>
+        <div class="arch-foot"><span>6 Lessons · Quiz Included</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tools-strip">
+  <div class="tools-inner">
+    <div class="rv">
+      <div class="section-chip" style="color:var(--slate-l);border-color:var(--slate-l);font-size:11px;">Our Production Toolkit</div>
+    </div>
+    <div class="tools-grid rv d1">
+      <div>
+        <div class="tool-col-label">AI Content and Video</div>
+        <div class="tools-pills">
+          <div class="tpill"><span class="tpill-icon">&#129302;</span>OpenAI</div>
+          <div class="tpill"><span class="tpill-icon">&#127917;</span>HeyGen</div>
+          <div class="tpill"><span class="tpill-icon">&#129309;</span>Synthesia</div>
+          <div class="tpill"><span class="tpill-icon">&#127909;</span>Kling AI</div>
+          <div class="tpill"><span class="tpill-icon">&#127381;</span>Runway ML</div>
+          <div class="tpill"><span class="tpill-icon">&#128266;</span>ElevenLabs</div>
+          <div class="tpill"><span class="tpill-icon">&#129504;</span>MS Copilot</div>
+          <div class="tpill"><span class="tpill-icon">&#127756;</span>Midjourney</div>
+        </div>
+      </div>
+      <div>
+        <div class="tool-col-label">Editing and Production</div>
+        <div class="tools-pills">
+          <div class="tpill"><span class="tpill-icon">&#9986;</span>Descript</div>
+          <div class="tpill"><span class="tpill-icon">&#127912;</span>Adobe Suite</div>
+          <div class="tpill"><span class="tpill-icon">&#127916;</span>Camtasia</div>
+          <div class="tpill"><span class="tpill-icon">&#127907;</span>DaVinci Resolve</div>
+          <div class="tpill"><span class="tpill-icon">&#128241;</span>CapCut Pro</div>
+          <div class="tpill"><span class="tpill-icon">&#128396;</span>Canva AI</div>
+          <div class="tpill"><span class="tpill-icon">&#128208;</span>Figma</div>
+        </div>
+      </div>
+      <div>
+        <div class="tool-col-label">Course Authoring and LMS</div>
+        <div class="tools-pills">
+          <div class="tpill"><span class="tpill-icon">&#128208;</span>Articulate Rise</div>
+          <div class="tpill"><span class="tpill-icon">&#128202;</span>Storyline 360</div>
+          <div class="tpill"><span class="tpill-icon">&#128218;</span>Adobe Captivate</div>
+          <div class="tpill"><span class="tpill-icon">&#127891;</span>Teachable</div>
+          <div class="tpill"><span class="tpill-icon">&#127979;</span>Kajabi</div>
+          <div class="tpill"><span class="tpill-icon">&#127959;</span>Thinkific</div>
+          <div class="tpill"><span class="tpill-icon">&#128279;</span>iSpring</div>
+        </div>
+      </div>
+      <div>
+        <div class="tool-col-label">Workflow and Strategy</div>
+        <div class="tools-pills">
+          <div class="tpill"><span class="tpill-icon">&#128221;</span>Notion AI</div>
+          <div class="tpill"><span class="tpill-icon">&#9889;</span>Zapier</div>
+          <div class="tpill"><span class="tpill-icon">&#127916;</span>Loom</div>
+          <div class="tpill"><span class="tpill-icon">&#128202;</span>Gamma AI</div>
+          <div class="tpill"><span class="tpill-icon">&#128203;</span>Asana</div>
+          <div class="tpill"><span class="tpill-icon">&#128247;</span>Vimeo</div>
+          <div class="tpill"><span class="tpill-icon">&#128204;</span>Miro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="close-section">
+  <div class="close-inner">
+    <div class="rv">
+      <div class="section-chip">Ready When You Are</div>
+      <h2>We would be glad to discuss this role and walk you through more of our work.</h2>
+      <p>Zarrin Productions is not a freelancer with a portfolio. It is an agency with processes, a production team, and a track record of shipping at scale. We are built for exactly the kind of complex, high-stakes learning content DEKRA creates. We would love the chance to prove it.</p>
+    </div>
+    <div class="close-right">
+      <div class="cc rv d1">
+        <div class="cc-label">Website</div>
+        <div class="cc-val">zarrinproductions.com</div>
+        <div class="cc-sub">Full portfolio and agency overview</div>
+      </div>
+      <div class="cc rv d2">
+        <div class="cc-label">Role Applied For</div>
+        <div class="cc-val">1099 · Future of Mobility Trainer</div>
+        <div class="cc-sub">DEKRA · US Remote</div>
+      </div>
+      <div class="cc rv d3">
+        <div class="cc-label">More Work Samples</div>
+        <div class="cc-val"><a href="https://drive.google.com/drive/folders/1mkhQI1gUk2WWmWRI4kPdDm5c3yroEWtZ?usp=sharing" target="_blank" style="color:var(--gold);font-weight:800;">View More Portfolio Samples</a></div>
+      </div>
+      <div class="cc rv d4">
+        <div class="cc-label">Email</div>
+        <div class="cc-val"><span id="emailval"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">ZARRIN <em>PRODUCTIONS</em></div>
+  <p>2025 Zarrin Productions · zarrinproductions.com · Application for DEKRA Future of Mobility Trainer</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function playVideo(idx, src) {
+  var thumb = document.getElementById('thumb' + idx);
+  var fw = document.getElementById('fw' + idx);
+  thumb.style.display = 'none';
+  fw.style.display = 'block';
+  fw.innerHTML = '<iframe src="' + src + '" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;"></iframe>';
+}
+
+// Set email without Cloudflare catching it
+var e = 'lucy' + '@' + 'zarrinproduction.com';
+var ev = document.getElementById('emailval');
+if(ev) ev.textContent = e;
+
+var nav = document.getElementById('topnav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+function revealAll() {
+  var els = document.querySelectorAll('.rv');
+  for (var i = 0; i < els.length; i++) { els[i].classList.add('in'); }
+}
+
+if ('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.05,  rootMargin: '0px 0px -30px 0px' });
+  var rvEls = document.querySelectorAll('.rv');
+  for (var j = 0; j < rvEls.length; j++) { obs.observe(rvEls[j]); }
+  setTimeout(revealAll, 1200);
+} else {
+  revealAll();
+}
+</script>
+</body>
+</html>
